@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	All
+{% endblock title %}
+
+
+{% block content %}
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Name</th>
+	      <th scope="col">Username</th>
+	      <th scope="col">Email</th>
+	      <th scope="col">Education</th>
+	      <th scope="col">Image</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for user in users %}
+	    <tr>
+	      <th scope="row">{{user.name}}</th>
+	      <td>{{user.username}}</td>
+	      <td>{{user.email}}</td>
+	      <td>{{user.education}}</td>
+	      <td>
+	      	<img src="{{user.profile_pic.url}}" alt="{{user.name}}" width="100" class="img-thumbnail">
+	      </td>
+	    </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+{% endblock%}

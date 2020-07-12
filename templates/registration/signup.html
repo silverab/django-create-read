@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Signup
+{% endblock title %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-sm">
+				{{form.name|as_crispy_field}}
+			</div>
+			<div class="col-sm">
+				{{form.username|as_crispy_field}}
+			</div>
+			<div class="col-sm">
+				{{form.email|as_crispy_field}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm">
+				{{form.gender|as_crispy_field}}
+			</div>
+			<div class="col-sm">
+				{{form.mobile|as_crispy_field}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm">
+				{{form.education|as_crispy_field}}
+			</div>
+			<div class="col-sm">
+				{{form.profile_pic|as_crispy_field}}
+			</div>
+		</div>
+		<button type="submit" class="btn btn-success">Sign up</button>
+	</form>
+{% endblock content %}
